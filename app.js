@@ -3,7 +3,7 @@ angular.module('eventApp', ['ngRoute'])
   $routeProvider
   .when('/add-event', {
   	templateUrl: 'views/add-event.html',
-    controller : 'MainCtrl'
+    controller : 'formCtrl'
   	
   })
   .otherwise({
@@ -12,3 +12,6 @@ angular.module('eventApp', ['ngRoute'])
   });
   $locationProvider.html5Mode(true);
 }]);
+
+
+
