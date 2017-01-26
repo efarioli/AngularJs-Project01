@@ -1,7 +1,7 @@
 angular.module('eventApp')
 .controller('formCtrl', ['eventFactory', '$scope', function (eventFactory, $scope) {
 
-	$scope.event = [];
+	$scope.event = eventFactory.getAllEvents();
 
 	$scope.submitForm = function(form){
 

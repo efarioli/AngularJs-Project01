@@ -2,13 +2,18 @@ angular.module('eventApp')
 .factory('eventFactory', function (){
 
     var eventFactory = {};
+    var events = [];
 	
-	
+	eventFactory.getAllEvents = function(){
+		return events;
+	}
 
 	eventFactory.createEvent = function(event, eventList)
 	{
 
-		eventList.push(event);
+		events.push(event);
+		eventList = events;
+
 		return eventList;
 
 	}
