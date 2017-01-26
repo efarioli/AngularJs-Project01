@@ -96,14 +96,13 @@
 		
 	</div>
 	<div class="col-md-6 col-sm-8 col-md-6">
-	    <div ng-repeat="event in eventCtrl.event">
-	        <table>
-	        	<tr><td>Event Name</td><td>Event Description</td></tr>
-	        	<tr><td>{{event.name}}</td><td>{{event.description}}</td></tr>
-	        </table>
-	        
-	    	
-	    </div>
+	    <table class="table table-striped">
+	    	<tr><td>Event Name</td></tr>
+
+	    	<tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
+
+	    	<tr ng-repeat-end><td>{{event.description}}</td></tr>
+	    </table>
 	
 	
 		
