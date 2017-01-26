@@ -1,13 +1,13 @@
 angular.module('eventApp')
-.controller('formCtrl', ['eventFactory', '$scope', function (eventFactory, $scope) {
+.controller('formCtrl', ['eventFactory',  function (eventFactory) {
 
-	$scope.event = eventFactory.getAllEvents();
+	this.event = eventFactory.getAllEvents();
 
-	$scope.submitForm = function(form){
+	this.submitForm = function(form){
 
-		eventFactory.createEvent(angular.copy(form), $scope.event);
+		eventFactory.createEvent(angular.copy(form), this.event);
 
-		console.log($scope.event);
+		//console.log($scope.event);
 		
 	}
 

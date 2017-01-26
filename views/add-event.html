@@ -4,7 +4,7 @@
     <div class="panel panel-primary">
 	    <div class="panel-heading"><h3>Add Event</h3></div>
 	    <div class="panel-body">
-	        <form class="form" role="form" id="addEventForm" ng-submit='submitForm(eventForm)' name="addEventForm">
+	        <form class="form" role="form" id="addEventForm" ng-submit='eventCtrl.submitForm(eventForm)' name="addEventForm">
 
 	            <div class="row">
 	                <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
@@ -96,7 +96,15 @@
 		
 	</div>
 	<div class="col-md-6 col-sm-8 col-md-6">
-	<p>{{eventForm | json}}</p>
+	    <div ng-repeat="event in eventCtrl.event">
+	        <table>
+	        	<tr><td>Event Name</td><td>Event Description</td></tr>
+	        	<tr><td>{{event.name}}</td><td>{{event.description}}</td></tr>
+	        </table>
+	        
+	    	
+	    </div>
+	
 	
 		
 	</div>
