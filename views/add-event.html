@@ -52,12 +52,10 @@
 	                <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
 	                    <div class="form-group">
 	                        <label for="eventCategory" class="control-label">Category</label>
-	                      	<select class="form-control" ng-model='eventForm.category' data-width="100%" name="eventCategory" name="eventCategory">
-	                      	    <option value="one">Category One</option>
-	                      	    <option value="two">Category Two</option>
-	                      	    <option value="three">Category Three</option>
-	                      	    <option value="four">Category Four</option>
-	                      	    <option value="five">Category Five</option>
+	                      	<select class="form-control" ng-model='eventForm.category' ng-options="category.id as category.name
+	                      	group by category.group for category in eventCtrl.categories" 
+	                      	data-width="100%" name="eventCategory" name="eventCategory">
+	                      	    
 	                      		
 	                      	</select>
 	                    <p class="help-block">Select the event category</p>
@@ -96,12 +94,28 @@
 		
 	</div>
 	<div class="col-md-6 col-sm-8 col-md-6">
-	    <table class="table table-striped">
-	    	<tr><td>Event Name</td></tr>
+	    <table class="table table-hover">
+	        <thead>
+	    	    <tr>
+	    	        <th>Event</th>
+	    	        <th>Description</th>
+	    	        <th>Category</th>
+	    	        <th>Contact Email</th>
+	    	        <th>Location</th>
+	    	        <th>Date</th>
 
-	    	<tr ng-repeat-start="event in eventCtrl.event"><td>{{event.name}}</td></tr>
-
-	    	<tr ng-repeat-end><td>{{event.description}}</td></tr>
+	    	    </tr>
+            </thead>
+            <tbody>
+	    	    <tr ng-repeat="event in eventCtrl.event">
+	    	    	<td>{{event.name}}</td>
+	    	    	<td>{{event.description}}</td>
+	    	    	<td>{{event.category}}</td>
+	    	    	<td>{{event.email}}</td>
+	    	    	<td>{{event.location}}</td>
+	    	    	<td>{{event.date}}</td>
+	    	    </tr>
+	    	</tbody>
 	    </table>
 	
 	
