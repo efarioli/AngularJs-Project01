@@ -52,8 +52,8 @@
 	                <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
 	                    <div class="form-group">
 	                        <label for="eventCategory" class="control-label">Category</label>
-	                      	<select class="form-control" ng-model='eventForm.category' ng-options="category.id as category.name
-	                      	group by category.group for category in eventCtrl.categories" 
+	                      	<select class="form-control" ng-model='eventCtrl.selectedOption' ng-options="category.name 
+	                      	group by category.group for category in eventCtrl.categories track by category.id" 
 	                      	data-width="100%" name="eventCategory" name="eventCategory">
 	                      	    
 	                      		
