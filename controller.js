@@ -1,7 +1,13 @@
 angular.module('eventApp')
-.controller('formCtrl', ['eventFactory',  function (eventFactory) {
+.controller("classifiedsCtrl", function($scope){
+
+    	$scope.name2 = "!!!!Ezequiel!!!!";
+
+    })
+.controller('formCtrl', ['eventFactory',  function (eventFactory, $scope) {
 
 	var self = this;
+	
 
 	this.event = eventFactory.getAllEvents();
 
@@ -10,7 +16,7 @@ angular.module('eventApp')
 
 	this.selectedOption = {id:1, name:'Music'};
 
-	this.specialEvent = true;
+	this.specialEvent = 'true';
 
 	this.specialValue ={id:1, value:'somethingSpecial'};
 
@@ -18,37 +24,28 @@ angular.module('eventApp')
 
 	this.specialType = [{name: 'Age Restricted', checked: false},{name: 'Luxury', checked: false}];
 
-	this.selectAllTypes = function (){
 
-		if (self.bothSelected){
-			self.bothSelected = true;
-		} else {
-			self.bothSelected = false;
-		}
-
-		angular.forEach(this.specialType, function(item){
-
-			item.checked = self.bothSelected;
+	this.selectAllTypes = function(){
+		var toggleStatus = self.bothSelected;
+		angular.forEach(self.specialType, function(itm) {
+			itm.checked = toggleStatus;
 		})
-
-		}
-
+	}
 
 
+	this.optionToggled = function() {
+		self.bothSelected = self.specialType.every(function(itm){
+			return itm.checked;
+		})
+	}	
 
 
 
-	/*	var big;
-if (x > 10) {
-    big = true;
-}
-else {
-    big = false;
-}
 
-var big = (x > 10) ? true : false;
 
-	};*/
+
+	
+
 
 	this.submitForm = function(form){
 
